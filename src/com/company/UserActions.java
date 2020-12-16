@@ -6,12 +6,13 @@ public enum UserActions {
 
 
     EXIT(UserActions.exitValue, UserActions.exit),
-    CREATE_LIBRARY("1", "Create a library"),
-    DELETE_LIBRARY("2", "Delete a library"),
-    ADD_BOOK("3", "Add book"),
-    REMOVE_BOOK("4", "Remove book"),
+    ADD_BOOK("1", "Add a book"),
+    REMOVE_BOOK("2", "Remove a book"),
+    BORROW_BOOK("3", "Borrow book"),
+    RETURN_BOOK("4", "Return book"),
     LIST_BOOK("5","List all books"),
-    LIST_LIBRARIES("6","List libraries");
+    LIST_LOANS("6","List all loans"),
+    FILL_LIBRARY("7","Fill library for testing");
 
     private static final String exit = "Exit";
     private static final String exitValue = "0";

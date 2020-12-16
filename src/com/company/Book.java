@@ -1,13 +1,26 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import java.io.Serializable;
 
-public class Book {
+
+
+public class Book implements Serializable {
     private int id;
     private String title;
     private String description;
     private String author;
+    private boolean isBorrowed = false;
+
+
+
+
+    public boolean getIsBorrowed() {
+        return isBorrowed;
+    }
+
+    public void setBorrowed(boolean borrowed) {
+        this.isBorrowed = borrowed;
+    }
 
     public Book(int id) {
         this.id = id;
@@ -17,7 +30,7 @@ public class Book {
 
     }
 
-    public Book(int id, String title, String author ,String description) {
+    public Book(int id, String title, String author ,String description,boolean isBorrowed) {
         this.id = id;
         this.title = title;
         this.description = description;
