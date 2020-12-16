@@ -1,9 +1,7 @@
 package com.company;
 
-import com.company.model.Borrow;
-
 import java.io.Serializable;
-import java.time.LocalDate;
+
 
 
 public class Book implements Serializable {
@@ -12,6 +10,7 @@ public class Book implements Serializable {
     private String description;
     private String author;
     private boolean isBorrowed = false;
+
 
 
 

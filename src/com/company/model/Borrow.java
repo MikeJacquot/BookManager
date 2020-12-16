@@ -1,14 +1,12 @@
 package com.company.model;
 
 import java.time.LocalDateTime;
-import java.time.Year;
 import java.time.format.DateTimeFormatter;
 
 public class Borrow {
     private LocalDateTime borrowDate;
     private String borrowerName;
     private LocalDateTime returnDate;
-
 
 
     public Borrow() {
@@ -42,16 +40,33 @@ public class Borrow {
     }
 
     public void setReturnDate(LocalDateTime returnDate) {
+
         this.returnDate = returnDate;
     }
 
     @Override
     public String toString() {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        return "Borrow {" +
-                " borrowDate = " + borrowDate.format(format) +
-                ", borrowerName = '" + borrowerName + '\'' +
-                ", returnDate =" + returnDate.format(format) +
-                '}';
+        if (returnDate != null) {
+
+
+            return "Borrow {" +
+                    " borrowDate = " + borrowDate.format(format) +
+                    ", borrowerName = '" + borrowerName + '\'' +
+                    ", returnDate =" + returnDate.format(format) +
+                    '}';
+        } else {
+            return "Borrow {" +
+                    " borrowDate = " + borrowDate.format(format) +
+                    ", borrowerName = '" + borrowerName;
+
+        }
+    }
+
+    public void checkInstance() {
+        if (this.borrowDate == null) {
+            ;
+            return;
+        }
     }
 }

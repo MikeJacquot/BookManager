@@ -43,7 +43,7 @@ public class BookService {
                 }
             } while (!rightAnswer);
             if (choice.equalsIgnoreCase(UserActions.REMOVE_BOOK.getValue())) {
-                addBook();
+                removeBook();
 
             }
             if (choice.equalsIgnoreCase(UserActions.LIST_BOOK.getValue())) {
@@ -131,6 +131,9 @@ public class BookService {
     public void returnBook() {
         listBorrows();
         String choice;
+        if(borrows!=null){
+
+
         do {
             System.out.println("which one would you like to return ?");
             choice = UserActions.userInput();
@@ -138,6 +141,8 @@ public class BookService {
         } while ((Integer.parseInt(choice) < 0) && Integer.parseInt(choice) > borrows.size());
         bookManager.returnBook(choice);
         bookManager.getBorrows().get(Integer.parseInt(choice)-1).setReturnDate(LocalDateTime.now());
+        }
+
     }
 
 
@@ -148,6 +153,17 @@ public class BookService {
         System.out.println("LISTING BORROWS");
         DisplayBook.drawLine();
         bookManager.listBorrows();
+    }
+
+    public void removeBook(){
+        DisplayBook.drawLine();
+        System.out.println("REMOVE BOOK");
+        DisplayBook.drawLine();
+        listBooks();
+        System.out.println("Which one would you like to delete ?");
+        String choice = UserActions.userInput();
+        bookManager.removeBook(choice);
+
     }
 
 

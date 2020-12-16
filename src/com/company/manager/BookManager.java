@@ -22,6 +22,7 @@ public class BookManager implements Serializable {
     }
 
     public void setBorrows(ArrayList<Borrow> borrows) {
+        checkInstance();
         this.borrows = borrows;
     }
 
@@ -79,10 +80,14 @@ public class BookManager implements Serializable {
     }
 
     public void listBorrows(){
+        if(borrows!= null){
         int counter = 1;
         for(Borrow b : borrows){
             System.out.println(counter+" "+b.toString());
-            counter++;
+            counter++;     }
+        }else{
+            System.out.println("No loans yet !");
+            System.out.println();
         }
     }
 
@@ -91,6 +96,12 @@ public class BookManager implements Serializable {
             this.borrows = new ArrayList<Borrow>();
             return;
         }
+    }
+
+    public void removeBook(String choice){
+        l.getBooks().remove(Integer.parseInt(choice)-1);
+
+
     }
 
 
